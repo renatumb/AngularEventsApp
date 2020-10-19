@@ -29,4 +29,7 @@ export class EventListComponent implements OnInit {
     void {
   }
 
+  clicked($event) {
+    console.log($event);
+  }
 }
