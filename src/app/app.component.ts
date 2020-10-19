@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<h2>HELLO WORLDll</h2>
-  <img src="/assets/images/basic-shield.png">
-  `,
+  template: `
+    <app-event-list></app-event-list>  `,
 })
 export class AppComponent {
   title = 'AngularEventsApp';
