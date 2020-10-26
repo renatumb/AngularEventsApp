@@ -5,3 +5,7 @@
 .well div {
   color: darkcyan;
 }
+
+.thumbnail {
+  min-height: 250px;
+}

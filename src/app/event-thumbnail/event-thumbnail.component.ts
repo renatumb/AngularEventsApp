@@ -21,7 +21,7 @@ export class EventThumbnailComponent implements OnInit {
 
   handleClick($event: MouseEvent) {
 
-    let moreData = {
+    const moreData = {
       event: $event,
       extra: 'hello guys'
     };
