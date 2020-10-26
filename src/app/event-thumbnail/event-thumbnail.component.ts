@@ -7,11 +7,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class EventThumbnailComponent implements OnInit {
 
-  @Input
+  @Input()
   event: any;
 
-  @Output
-  buttonClicked: EventEmitter = new EventEmitter();
+  @Output()
+  buttonClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
   }
@@ -25,6 +25,6 @@ export class EventThumbnailComponent implements OnInit {
       event: $event,
       extra: 'hello guys'
     };
-    this.buttonClicked.emit(this.event.name);
+    this.buttonClicked.emit(moreData);
   }
 }
