@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {EventListComponent} from './event-list/event-list.component';
 import {EventThumbnailComponent} from './event-thumbnail/event-thumbnail.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
@@ -10,7 +10,6 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {CreateEventComponent} from './create-event/create-event.component';
 import {Error404Component} from './errors/404.component';
-
 
 
 @NgModule({
@@ -27,7 +26,16 @@ import {Error404Component} from './errors/404.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    {provide: 'canDeactivateARoute', useValue: functionNameToDeactivate}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function functionNameToDeactivate(component: CreateEventComponent) {
+  if (component.isDirty) {
+    return window.confirm('Date is not saved. Do you still want to leave?');
+  }
+  return true;
+}
