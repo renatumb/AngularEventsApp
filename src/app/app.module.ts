@@ -6,6 +6,9 @@ import {EventListComponent} from './event-list/event-list.component';
 import {EventThumbnailComponent} from './event-thumbnail/event-thumbnail.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {EventDetailsComponent} from './event-details/event-details.component';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './routes';
+
 
 
 @NgModule({
@@ -17,7 +20,8 @@ import {EventDetailsComponent} from './event-details/event-details.component';
     EventDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
