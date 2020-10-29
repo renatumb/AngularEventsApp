@@ -24,6 +24,7 @@
     "ngf-bootstrap": "0.0.5",
     "rxjs": "~6.5.4",
     "source-map-explorer": "^2.5.0",
+    "toastr": "^2.1.4",
     "tslib": "^1.10.0",
     "webpack-bundle-analyzer": "^3.9.0",
     "zone.js": "~0.10.2"
