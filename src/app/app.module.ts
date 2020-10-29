@@ -9,6 +9,7 @@ import {EventDetailsComponent} from './event-details/event-details.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {CreateEventComponent} from './create-event/create-event.component';
+import {Error404Component} from './errors/404.component';
 
 
 
@@ -19,7 +20,8 @@ import {CreateEventComponent} from './create-event/create-event.component';
     EventThumbnailComponent,
     NavBarComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
