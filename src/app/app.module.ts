@@ -10,6 +10,7 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {CreateEventComponent} from './create-event/create-event.component';
 import {Error404Component} from './errors/404.component';
+import {UserModule} from "./user/user.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {Error404Component} from './errors/404.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    UserModule
   ],
   providers: [
     {provide: 'canDeactivateARoute', useValue: functionNameToDeactivate}
