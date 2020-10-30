@@ -2,3 +2,6 @@
   font-size: 15px;
 }
 
+li > a.active {
+  color: #f89406;
+}
