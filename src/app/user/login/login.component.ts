@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   userNameInputXX: any;
   passwordInput: any;
+  mouseOverLoginButton: boolean = false;
 
   get userNameInput() {
     console.log("GET userNameInputXX");

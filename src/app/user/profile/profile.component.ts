@@ -32,7 +32,8 @@ export class ProfileComponent implements OnInit {
   }
 
   update(profileForm: FormGroup) {
-    console.log("here");
+    console.log("ProfileComponent.update()");
+    console.log(profileForm);
     this.authService.updateCurrentUser(
       profileForm.controls.firstName.value,
       profileForm.controls.lastName.value,

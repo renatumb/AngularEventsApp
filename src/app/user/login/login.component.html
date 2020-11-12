@@ -4,18 +4,21 @@
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm.form)" autocomplete="off" novalidate>
     <div class="form-group">
       <label for="userName">User Name:</label>
-      <em *ngIf="loginForm.controls.userNameInput?.invalid">required</em>
+      <em
+        *ngIf="loginForm.controls.userNameInput?.invalid && (loginForm.controls.userNameInput?.dirty || mouseOverLoginButton)">required</em>
       <input (ngModel)="userNameInput" class="form-control" id="userName" name="userNameInput"
              placeholder="User Name..." required type="text"/>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <em *ngIf="loginForm.controls.passwordInput?.invalid">required</em>
+      <em
+        *ngIf="loginForm.controls.passwordInput?.invalid && (loginForm.controls.passwordInput?.dirty || mouseOverLoginButton)">required</em>
       <input (ngModel)="passwordInput" class="form-control" id="password" name="passwordInput" placeholder="Password..."
              required type="password"/>
     </div>
-
-    <button [disabled]="this.loginForm.invalid" class="btn btn-primary" type="submit">Login</button>
+    <span (mouseenter)="mouseOverLoginButton=true" (mouseleave)="mouseOverLoginButton=false">
+      <button [disabled]="this.loginForm.invalid" class="btn btn-primary" type="submit">Login</button>
+    </span>
     <button (click)="navigateBackToEvents()" class="btn btn-default" type="button">Cancel</button>
   </form>
 </div>

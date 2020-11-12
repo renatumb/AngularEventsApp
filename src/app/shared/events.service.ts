@@ -324,6 +324,7 @@ export class EventsService {
   getEvents(): Observable<any> {
     let subject: Subject<IEvent[]> = new Subject();
     setTimeout(() => {
+      console.log('5 seconds to retrieve data -->>  events.service.ts ');
       subject.next(this.events);
       subject.complete();
     }, 5000);
