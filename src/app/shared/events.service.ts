@@ -327,11 +327,16 @@ export class EventsService {
       console.log('5 seconds to retrieve data -->>  events.service.ts ');
       subject.next(this.events);
       subject.complete();
-    }, 5000);
+    }, 1);
     return subject;
   }
 
   getEvent(id: number): IEvent {
     return this.events.find(x => x.id === id);
+  }
+
+  save(value: any) {
+    console.log('EventsService.save()');
+    this.events.push(value);
   }
 }

@@ -1,1 +1,81 @@
-<p>create-event works!</p>
+<h1>New Event</h1>
+<hr>
+<div class="col-md-6">
+  <form #newEventForm="ngForm" (ngSubmit)="saveEvent(newEventForm)" autocomplete="off" novalidate>
+    <div [ngClass]="{'error': newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched}"
+         class="form-group">
+      <label for="name">Event Name:</label>
+      <em *ngIf="newEventForm.controls.name?.invalid && (newEventForm.controls.name?.touched)">Required</em>
+      <input (ngModel)="newEvent.name" class="form-control" id="name" name="name" placeholder="Name of your event..."
+             required
+             type="text"/>
+    </div>
+    <div [ngClass]="{'error': newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched}"
+         class="form-group">
+      <label for="eventDate">Event Date:</label>
+      <em *ngIf="newEventForm.controls.date?.invalid && (newEventForm.controls.date?.touched)">Required</em>
+      <input (ngModel)="newEvent.date" class="form-control" id="eventDate" name="date"
+             placeholder="format (mm/dd/yyyy)..." required
+             type="text"/>
+    </div>
+    <div [ngClass]="{'error': newEventForm.controls.time?.invalid && newEventForm.controls.time?.touched}"
+         class="form-group">
+      <label for="eventTime">Event Time:</label>
+      <em *ngIf="newEventForm.controls.time?.invalid && (newEventForm.controls.time?.touched)">Required</em>
+      <input (ngModel)="newEvent.time" class="form-control" id="eventTime" name="time"
+             placeholder="start and end time..." required
+             type="text"/>
+    </div>
+    <div [ngClass]="{'error': newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched}"
+         class="form-group">
+      <label for="eventPrice">Event Price:</label>
+      <em *ngIf="newEventForm.controls.price?.invalid && (newEventForm.controls.price?.touched)">Required</em>
+      <input (ngModel)="newEvent.price" class="form-control" id="eventPrice" name="price" placeholder="event price..."
+             required
+             type="text"
+             type="number"/>
+    </div>
+
+    <div ngModelGroup="location">
+      <div class="form-group">
+        <label for="address">Event Location:</label>
+        <input (ngModel)="newEvent.address" class="form-control" id="address" name="address"
+               placeholder="Address of event..."
+               type="text"/>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input (ngModel)="newEvent.city" class="form-control" id="city" name="city" placeholder="City..."
+                 type="text"/>
+        </div>
+        <div class="col-md-6">
+          <input (ngModel)="newEvent.country" class="form-control" id="country" name="country" placeholder="Country..."
+                 type="text"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="onlineUrl">Online Url:</label>
+      <input (ngModel)="newEvent.onlineUrl" class="form-control" id="onlineUrl" name="onlineUrl"
+             placeholder="Online Url..."
+             type="text"/>
+    </div>
+    <div [ngClass]="{'error': newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched}"
+         class="form-group">
+      <label for="imageUrl">Image:</label>
+      <em
+        *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched && newEventForm.controls.imageUrl?.errors.required">Required</em>
+      <em
+        *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched  && newEventForm.controls.imageUrl?.errors.pattern">Must
+        be a png or jpg url</em>
+      <input (ngModel)="newEvent.imageUrl" class="form-control" id="imageUrl" name="imageUrl" pattern=".*\/.*.(png|jpg)"
+             placeholder="url of image..."
+             required type="text"/>
+      <img/>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+    <button (click)="cancel()" [disabled]="newEventForm.invalid" class="btn btn-default" type="button">Cancel</button>
+  </form>
+</div>
