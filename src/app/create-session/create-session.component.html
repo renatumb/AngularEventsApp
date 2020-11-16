@@ -38,11 +38,13 @@
     <div class="form-group">
       <label for="abstract">Abstract:</label>
       <em *ngIf="abstract.invalid && abstract.dirty"
-          [ngClass]="{'error': abstract.invalid && abstract.dirty}">Required</em>
+          [ngClass]="{'error': abstract.invalid && abstract.dirty}">{{abstract.errors[0]}}</em>
       <textarea class="form-control" formControlName="abstract" id="abstract" placeholder="abstract..."
                 rows=3></textarea>
     </div>
     <button class="btn btn-primary" type="submit">Save</button>
     <button class="btn btn-default" type="button">Cancel</button>
+    <br><br><br>
+    {{ abstract.errors | json }}
   </form>
 </div>

@@ -24,7 +24,7 @@ export class CreateSessionComponent implements OnInit {
     this.presenter = new FormControl('', [Validators.required]);
     this.duration = new FormControl('', [Validators.required]);
     this.level = new FormControl('', [Validators.required]);
-    this.abstract = new FormControl('', [Validators.required]);
+    this.abstract = new FormControl('', [Validators.required, this.retrictedWords, Validators.minLength(8)]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -48,5 +48,10 @@ export class CreateSessionComponent implements OnInit {
       presenter: parameters.value.presenter,
       voters: []
     }
+  }
+
+  retrictedWords(fc: FormControl): { [key: string]: any } | null {
+    console.log('CreateSessionComponent.retrictedWords()');
+    return fc.value.startsWith('xx') ? {'errorName': 'value of validation'} : null;
   }
 }
