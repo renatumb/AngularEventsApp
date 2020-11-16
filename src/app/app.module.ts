@@ -12,6 +12,7 @@ import {CreateEventComponent} from './create-event/create-event.component';
 import {Error404Component} from './errors/404.component';
 import {UserModule} from "./user/user.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CreateSessionComponent} from './create-session/create-session.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
