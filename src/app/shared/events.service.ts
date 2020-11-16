@@ -337,6 +337,7 @@ export class EventsService {
 
   save(value: any) {
     console.log('EventsService.save()');
+    console.log(value);
     this.events.push(value);
   }
 }
