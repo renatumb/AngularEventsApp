@@ -11,6 +11,9 @@ export class CreateSessionComponent implements OnInit {
 
   @Output()
   saveNewSessionEvent: EventEmitter<ISession> = new EventEmitter();
+  @Output()
+  cancelAddSession: EventEmitter<any> = new EventEmitter();
+
   newSessionForm: FormGroup;
   name: FormControl;
   presenter: FormControl;
@@ -37,7 +40,7 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
-  saveSession(parameters: FormGroup) {
+  saveSession(parameters: FormGroup): void {
     console.log("CreateSessionComponent.saveSession()");
     console.log(parameters);
 
@@ -56,5 +59,10 @@ export class CreateSessionComponent implements OnInit {
   retrictedWords(fc: FormControl): { [key: string]: any } | null {
     console.log('CreateSessionComponent.retrictedWords()');
     return fc.value.startsWith('xx') ? {'errorName': 'value of validation'} : null;
+  }
+
+  cancelAddSessionChild(): void {
+    console.log('CreateSessionComponent.cancelAddSessionChild()');
+    this.cancelAddSession.emit(null);
   }
 }

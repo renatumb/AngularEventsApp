@@ -33,4 +33,9 @@ export class EventDetailsComponent implements OnInit {
     this.event.sessions.push($event);
     this.eventsService.updateEvent(this.event);
   }
+
+  cancelAddSessionParent() {
+    console.log('CreateSessionComponent.cancelAddSessionParent()');
+    this.addMode = false;
+  }
 }
