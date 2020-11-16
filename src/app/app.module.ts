@@ -13,6 +13,7 @@ import {Error404Component} from './errors/404.component';
 import {UserModule} from "./user/user.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateSessionComponent} from './create-session/create-session.component';
+import {SessionListComponent} from './session-list/session-list.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {CreateSessionComponent} from './create-session/create-session.component'
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
