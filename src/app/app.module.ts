@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CreateSessionComponent} from './create-session/create-session.component';
 import {SessionListComponent} from './session-list/session-list.component';
 import {CollapsibleWellComponent} from './shared/collapsible-well/collapsible-well.component';
+import {DurationPipe} from './shared/duration.pipe';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {CollapsibleWellComponent} from './shared/collapsible-well/collapsible-we
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
