@@ -10,10 +10,11 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {CreateEventComponent} from './create-event/create-event.component';
 import {Error404Component} from './errors/404.component';
-import {UserModule} from "./user/user.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UserModule} from './user/user.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CreateSessionComponent} from './create-session/create-session.component';
 import {SessionListComponent} from './session-list/session-list.component';
+import {CollapsibleWellComponent} from './shared/collapsible-well/collapsible-well.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {SessionListComponent} from './session-list/session-list.component';
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
