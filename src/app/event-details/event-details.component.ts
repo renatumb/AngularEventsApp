@@ -16,6 +16,7 @@ export class EventDetailsComponent implements OnInit {
   addMode: boolean = false;
 
   filterBy: string = 'all';
+  sortBy: string = 'name';
 
   constructor(private eventsService: EventsService,
               private activatedRoute: ActivatedRoute) {
