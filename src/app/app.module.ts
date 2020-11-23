@@ -16,7 +16,9 @@ import {CreateSessionComponent} from './create-session/create-session.component'
 import {SessionListComponent} from './session-list/session-list.component';
 import {CollapsibleWellComponent} from './shared/collapsible-well/collapsible-well.component';
 import {DurationPipe} from './shared/duration.pipe';
+import {TOAST_TOKEN, ToastInterface} from './shared/toast.service';
 
+const toastObj: ToastInterface = window['toastr'];
 
 @NgModule({
   declarations: [
@@ -40,11 +42,13 @@ import {DurationPipe} from './shared/duration.pipe';
     ReactiveFormsModule
   ],
   providers: [
-    {provide: 'canDeactivateARoute', useValue: functionNameToDeactivate}
+    {provide: 'canDeactivateARoute', useValue: functionNameToDeactivate},
+    {provide: TOAST_TOKEN, useValue: toastObj}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 export function functionNameToDeactivate(component: CreateEventComponent) {
   if (component.isDirty) {

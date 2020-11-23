@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {TOAST_TOKEN, ToastInterface} from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,8 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
 
   constructor(private  authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              @Inject(TOAST_TOKEN) private injectedToastService: ToastInterface) {
   }
 
   ngOnInit(): void {
@@ -38,5 +40,6 @@ export class ProfileComponent implements OnInit {
       profileForm.controls.firstName.value,
       profileForm.controls.lastName.value,
     )
+    //this.injectedToastService.success("Profile Saved");
   }
 }
