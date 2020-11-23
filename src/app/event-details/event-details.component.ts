@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {EventsService} from "../shared/events.service";
-import {ActivatedRoute} from "@angular/router";
-import {IEvent, ISession} from "../shared/ievent";
+import {EventsService} from '../shared/events.service';
+import {ActivatedRoute} from '@angular/router';
+import {IEvent, ISession} from '../shared/ievent';
 
 
 @Component({
@@ -9,10 +9,13 @@ import {IEvent, ISession} from "../shared/ievent";
   templateUrl: './event-details.component.html',
   styleUrls: ['./event-details.component.css']
 })
+
 export class EventDetailsComponent implements OnInit {
 
   event: IEvent;
   addMode: boolean = false;
+
+  filterBy: string = 'all';
 
   constructor(private eventsService: EventsService,
               private activatedRoute: ActivatedRoute) {
@@ -28,7 +31,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   saveNewSessionMethod($event: ISession) {
-    console.log("EventDetailsComponent.saveNewSessionMethod()");
+    console.log('EventDetailsComponent.saveNewSessionMethod()');
     this.addMode = false;
     this.event.sessions.push($event);
     this.eventsService.updateEvent(this.event);
@@ -37,5 +40,10 @@ export class EventDetailsComponent implements OnInit {
   cancelAddSessionParent() {
     console.log('CreateSessionComponent.cancelAddSessionParent()');
     this.addMode = false;
+  }
+
+  updateFilter(param: string) {
+    console.log('EventDetailsComponent.updateFilter()');
+    this.filterBy = param;
   }
 }
